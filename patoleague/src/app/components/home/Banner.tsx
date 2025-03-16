@@ -89,7 +89,6 @@ export default function Banner() {
         alert("Time criado com sucesso!");
         setIsTeamModalOpen(false);
         await checkUserData(user.id); // Atualiza os dados do usuário
-        window.location.reload();
       }
     } catch (err) {
       console.log(err)

@@ -64,29 +64,35 @@ export default function AdminTeams() {
 
   async function handleAddPlayerToTeam() {
     if (!selectedTeam || !selectedPlayer) return;
-
+  
     try {
-      await api.patch(`/players/${selectedPlayer}`, { teamId: selectedTeam.id });
+      await api.post(`/players/${selectedPlayer}/assign-team`, {
+        teamId: selectedTeam.id,
+      });
       alert("Jogador adicionado ao time!");
-      fetchTeams();
-      fetchPlayers();
+      fetchTeams(); // Atualiza os times
+      fetchPlayers(); // Atualiza a lista de jogadores disponíveis
     } catch (err) {
-      console.log(err)
+      console.log(err);
       setError("Erro ao adicionar jogador ao time");
     }
   }
+  
 
   async function handleRemovePlayerFromTeam(playerId) {
     try {
-      await api.patch(`/players/${playerId}`, { teamId: null });
+      await api.post(`/players/${playerId}/assign-team`, {
+        teamId: null,
+      });
       alert("Jogador removido do time!");
       fetchTeams();
       fetchPlayers();
     } catch (err) {
-      console.log(err)
+      console.log(err);
       setError("Erro ao remover jogador do time");
     }
   }
+  
 
   return (
     <div>
@@ -185,26 +191,28 @@ export default function AdminTeams() {
         </div>
 
         {/* Jogadores do Time */}
-        <div className="mt-6">
-          <h3 className="text-lg font-semibold">Jogadores no Time</h3>
-          <ul className="mt-2">
-            {selectedTeam?.players.length > 0 ? (
-              selectedTeam.players.map((player) => (
-                <li
-                  key={player.id}
-                  className="p-4 bg-gray-200 flex justify-between items-center rounded-lg mt-2"
-                >
-                  <span>{player.name} ({player.position})</span>
-                  <PlButton hierarchy="primary" onClick={() => handleRemovePlayerFromTeam(player.id)}>
-                    Remover
-                  </PlButton>
-                </li>
-              ))
-            ) : (
-              <p className="text-gray-500">Nenhum jogador neste time</p>
-            )}
-          </ul>
-        </div>
+        {/* Jogadores do Time */}
+<div className="mt-6">
+  <h3 className="text-lg font-semibold">Jogadores no Time</h3>
+  <ul className="mt-2">
+    {selectedTeam?.players?.length > 0 ? (
+      selectedTeam.players.map((player) => (
+        <li
+          key={player.id}
+          className="p-4 bg-gray-200 flex justify-between items-center rounded-lg mt-2"
+        >
+          <span>{player.name} ({player.position})</span>
+          <PlButton hierarchy="primary" onClick={() => handleRemovePlayerFromTeam(player.id)}>
+            Remover
+          </PlButton>
+        </li>
+      ))
+    ) : (
+      <p className="text-gray-500">Nenhum jogador neste time</p>
+    )}
+  </ul>
+</div>
+
       </PlModal>
     </div>
   );
