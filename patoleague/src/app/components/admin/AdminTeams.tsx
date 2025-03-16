@@ -195,7 +195,7 @@ export default function AdminTeams() {
                   className="p-4 bg-gray-200 flex justify-between items-center rounded-lg mt-2"
                 >
                   <span>{player.name} ({player.position})</span>
-                  <PlButton hierarchy="danger" onClick={() => handleRemovePlayerFromTeam(player.id)}>
+                  <PlButton hierarchy="primary" onClick={() => handleRemovePlayerFromTeam(player.id)}>
                     Remover
                   </PlButton>
                 </li>

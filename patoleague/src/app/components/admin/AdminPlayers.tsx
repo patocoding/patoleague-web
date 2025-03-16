@@ -131,7 +131,7 @@ export default function AdminPlayers() {
                     Editar
                   </PlButton>
                   <PlButton
-                    hierarchy="danger"
+                    hierarchy="primary"
                     onClick={() => handleDeletePlayer(player.id)}
                   >
                     Excluir
