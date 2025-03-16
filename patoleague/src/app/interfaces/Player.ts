@@ -13,4 +13,5 @@ export interface Player {
     totalPoints: number;
     totalAssists: number;
     totalRebounds: number;
+    photoUrl:string;
   }
