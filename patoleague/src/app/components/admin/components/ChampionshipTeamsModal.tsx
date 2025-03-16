@@ -19,6 +19,7 @@ export default function ChampionshipTeamsModal({ isOpen, onClose, championshipId
       const response = await api.get(`/championship-teams/${championshipId}`);
       setTeams(response.data);
     } catch (err) {
+      console.log(err)
       setError("Erro ao carregar os times");
     } finally {
       setLoading(false);

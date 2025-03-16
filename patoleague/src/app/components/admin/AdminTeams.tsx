@@ -31,6 +31,7 @@ export default function AdminTeams() {
       const response = await api.get("/teams");
       setTeams(response.data);
     } catch (err) {
+      console.log(err)
       setError("Erro ao carregar times");
     } finally {
       setLoading(false);
@@ -42,6 +43,7 @@ export default function AdminTeams() {
       const response = await api.get("/players");
       setPlayers(response.data);
     } catch (err) {
+      console.log(err)
       setError("Erro ao carregar jogadores");
     }
   }
@@ -55,6 +57,7 @@ export default function AdminTeams() {
       setIsEditModalOpen(false);
       fetchTeams();
     } catch (err) {
+      console.log(err)
       setError("Erro ao atualizar time");
     }
   }
@@ -68,6 +71,7 @@ export default function AdminTeams() {
       fetchTeams();
       fetchPlayers();
     } catch (err) {
+      console.log(err)
       setError("Erro ao adicionar jogador ao time");
     }
   }
@@ -79,6 +83,7 @@ export default function AdminTeams() {
       fetchTeams();
       fetchPlayers();
     } catch (err) {
+      console.log(err)
       setError("Erro ao remover jogador do time");
     }
   }

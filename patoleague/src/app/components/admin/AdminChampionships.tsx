@@ -45,6 +45,7 @@ export default function AdminChampionships() {
       const response = await api.get("/championships");
       setChampionships(response.data);
     } catch (err) {
+      console.log(err)
       setError("Erro ao carregar campeonatos");
     } finally {
       setLoading(false);
@@ -56,6 +57,7 @@ export default function AdminChampionships() {
       const response = await api.get("/teams");
       setTeams(response.data);
     } catch (err) {
+      console.log(err)
       setError("Erro ao carregar times");
     }
   }
@@ -69,6 +71,7 @@ export default function AdminChampionships() {
         fetchChampionships(); // Atualiza lista
       }
     } catch (err) {
+      console.log(err)
       setError("Erro ao criar campeonato");
     }
   }
@@ -84,6 +87,7 @@ export default function AdminChampionships() {
         fetchChampionships();
       }
     } catch (err) {
+      console.log(err)
       setError("Erro ao atualizar campeonato");
     }
   }
@@ -103,6 +107,7 @@ export default function AdminChampionships() {
         fetchChampionships();
       }
     } catch (err) {
+      console.log(err)
       setError("Erro ao adicionar time ao campeonato");
     }
   }

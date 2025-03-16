@@ -22,6 +22,7 @@ export default function PublicStandings() {
       }, {});
       setStandings(groupedStandings);
     } catch (err) {
+      console.log(err)
       setError("Erro ao carregar standings");
     } finally {
       setLoading(false);

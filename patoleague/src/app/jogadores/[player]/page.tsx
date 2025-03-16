@@ -22,6 +22,7 @@ export default function PlayerPage() {
         const response = await api.get(`/players/player/${player}`);
         setPlayerObject(response.data);
       } catch (err) {
+        console.log(err)
         setError("Jogador não encontrado");
       } finally {
         setLoading(false);

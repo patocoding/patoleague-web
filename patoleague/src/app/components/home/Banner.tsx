@@ -92,6 +92,7 @@ export default function Banner() {
         window.location.reload();
       }
     } catch (err) {
+      console.log(err)
       setError("Falha ao criar time. Tente novamente.");
     }
     setLoading(false);
@@ -127,6 +128,7 @@ export default function Banner() {
         window.location.reload()
       }
     } catch (err) {
+      console.log(err)
       setError("Falha ao criar jogador. Tente novamente.");
     }
 

@@ -18,6 +18,7 @@ export default function PlayersList() {
         const response = await api.get("/players");
         setPlayers(response.data);
       } catch (err) {
+        console.log(err)
         setError("Erro ao carregar jogadores.");
       } finally {
         setLoading(false);

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./context/AuthContext";
-import Header from "./components/home/Header";
 import ReduxProvider from "../redux/ReduxProvider";
 
 // const geistSans = Geist({

@@ -34,6 +34,7 @@ export default function AdminMatches() {
       setChampionships(championshipsRes.data);
       setTeams(teamsRes.data);
     } catch (err) {
+      console.log(err)
       setError("Erro ao carregar dados.");
     } finally {
       setLoading(false);
