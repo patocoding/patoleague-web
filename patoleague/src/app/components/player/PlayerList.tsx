@@ -51,7 +51,7 @@ export default function PlayersList() {
             {/* Imagem do Jogador */}
             <div className="relative w-full lebron flex justify-center p-4">
               <Image
-                src={player.image || "/img/player-placeholder.png"}
+                src={player.photoUrl || "/img/player-placeholder.png"}
                 alt={player.name}
                 width={80}
                 height={80}
