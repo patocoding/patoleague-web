@@ -19,6 +19,7 @@ export default function TeamsPage() {
       const response = await api.get("/teams");
       setTeams(response.data);
     } catch (err) {
+    console.log(err)
       setError("Erro ao carregar times");
     } finally {
       setLoading(false);
