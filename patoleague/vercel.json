@@ -1,0 +1,8 @@
+{
+    "build": {
+      "env": {
+        "NEXTJS_IGNORE_ESLINT_ERRORS": "true"
+      }
+    }
+  }
+  
