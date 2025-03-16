@@ -4,7 +4,6 @@ import Form from "next/form";
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useState } from "react";
-import { useAuth } from "../context/AuthContext";
 import { useAuthentication } from "@/hooks/useAuthentication";
 
 export default function Auth() {

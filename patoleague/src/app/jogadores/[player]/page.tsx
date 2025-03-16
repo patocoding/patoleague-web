@@ -13,7 +13,6 @@ export default function PlayerPage() {
   const [playerObject, setPlayerObject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isSeasonStats, setIsSeasonStats] = useState(true);
 
   useEffect(() => {
     if (!player) return;

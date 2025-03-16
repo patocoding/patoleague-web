@@ -18,6 +18,7 @@ export default function InvitePlayer({ teamId }) {
       const response = await api.get(`/players/search/${query}`);
       setSuggestions(response.data);
     } catch (error) {
+      console.log(error)
       setSuggestions([]);
     }
   };
@@ -41,6 +42,7 @@ export default function InvitePlayer({ teamId }) {
       });
       setMessage(`Convite enviado para ${selectedPlayer.nickname}!`);
     } catch (error) {
+      console.log(error)
       setMessage("Erro ao enviar convite.");
     }
   };

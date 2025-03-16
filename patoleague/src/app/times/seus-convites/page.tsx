@@ -10,7 +10,7 @@ export default function PlayerInvites() {
   const [invites, setInvites] = useState([]);
   const [hasTeam, setHasTeam] = useState(false);
   const router = useRouter()
-
+  console.log(nickname)
   useEffect(() => {
     // 🔍 Obtém o nickname do usuário logado
     const storedNickname = localStorage.getItem("playerNickname") || "null"

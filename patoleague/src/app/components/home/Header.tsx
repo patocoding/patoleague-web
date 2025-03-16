@@ -4,26 +4,24 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FiMenu, FiLogOut, FiX } from "react-icons/fi";
-import { FaChevronDown, FaChevronRight, FaHome } from "react-icons/fa";
+import { FaChevronDown, FaHome } from "react-icons/fa";
 import { FaPeopleLine } from "react-icons/fa6";
 import { GiBasketballJersey } from "react-icons/gi";
-import { CgProfile } from "react-icons/cg";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuthentication } from "@/hooks/useAuthentication";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../../redux/slices/userSlice";
 import { FaBasketballBall } from "react-icons/fa";
-import { FaRankingStar } from "react-icons/fa6";
 import Dropdown from "../dropdown/Dropdown";
 import './header.css'
-import PlButton from "../button/button";
 export default function Header() {
   const router = useRouter();
   const dispatch = useDispatch();
   const { user, isAuthenticated } = useAuthentication();
-
+  console.log(user)
   const [menuOpen, setMenuOpen] = useState(false);
   const [optionsOpen, setOptionsOpen] = useState(false);
+  console.log(optionsOpen)
   const [dropdown, setDropdown] = useState(null);
   const [hasMounted, setHasMounted] = useState(false);
 

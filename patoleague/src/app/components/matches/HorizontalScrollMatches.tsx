@@ -21,6 +21,7 @@ export default function HorizontalScrollMatches() {
       const response = await api.get("/matches");
       setMatches(response.data);
     } catch (err) {
+      console.log(err)
       setError("Erro ao carregar partidas");
     } finally {
       setLoading(false);
