@@ -8,6 +8,12 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "eslintConfig": {
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "warn"
+  }
+},
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
     "axios": "^1.7.9",
