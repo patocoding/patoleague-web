@@ -135,7 +135,7 @@ export default function AdminMatches() {
                   <PlButton hierarchy="secondary" onClick={() => setEditingMatch(match.id)}>
                     Editar
                   </PlButton>
-                  <PlButton hierarchy="danger" onClick={() => handleDeleteMatch(match.id)}>
+                  <PlButton hierarchy="primary" onClick={() => handleDeleteMatch(match.id)}>
                     Excluir
                   </PlButton>
                 </div>
