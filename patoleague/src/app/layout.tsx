@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "./context/AuthContext";
+import Header from "./components/home/Header";
+import ReduxProvider from "../redux/ReduxProvider";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -25,11 +28,17 @@ export const metadata: Metadata = {
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en">
-      <body
-        className={`${InterSans.variable} antialiased`}
-      >
-        {children}
-      </body>
+      
+      <ReduxProvider>
+      <AuthProvider>
+        
+        <body
+          className={`${InterSans.variable} antialiased bg-[#f3ece4]`}
+        >
+          {children}
+        </body>
+        </AuthProvider>
+      </ReduxProvider>
     </html>
   );
 }

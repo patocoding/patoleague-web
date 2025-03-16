@@ -1,0 +1,26 @@
+.menu-item {
+  color: #e5e7eb; /* Cor do texto */
+  background: #0c2f37; /* Fundo preto */
+  padding: 16px 24px;
+  border-right: 1px solid #e5e7eb; /* Borda lateral */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  transform: skewX(-10deg); /* Inclina os itens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-item:hover {
+  background: orange; /* Altera a cor ao passar o mouse */
+  color: white;
+  transform: skewX(-10deg) scale(1.05); /* Mantém inclinado e aumenta levemente */
+}
+
+.lebron {
+    background-image: url("/img/lebron.jpg")
+}
+
+.atletes {
+    background-image: url("/img/atletes.jpg")
+}
