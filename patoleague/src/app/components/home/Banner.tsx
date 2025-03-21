@@ -37,7 +37,15 @@ export default function Banner() {
   const [validationErrors, setValidationErrors] = useState({});
 
   const validateInputs = () => {
-    let errors = {};
+    interface Errors {
+      playerName: string;
+      nickname: string;
+      height: string;
+      weight: string;
+      age: string;
+    }
+    const errors : Partial<Errors> = {}
+
 
     if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(playerName)) {
       errors.playerName = "Nome deve conter apenas letras e espaços.";
