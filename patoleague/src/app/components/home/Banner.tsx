@@ -34,17 +34,18 @@ export default function Banner() {
   const [checkingData, setCheckingData] = useState(true); 
   const [team, setTeam] = useState(null);
   const [hasTeam, setHasTeam] = useState(false);
-  const [validationErrors, setValidationErrors] = useState({});
+  const [validationErrors, setValidationErrors] = useState<Partial<Errors>>({});
+  interface Errors {
+    playerName: string;
+    nickname: string;
+    height: string;
+    weight: string;
+    age: string;
+  }
+  const errors : Partial<Errors> = {}
 
   const validateInputs = () => {
-    interface Errors {
-      playerName: string;
-      nickname: string;
-      height: string;
-      weight: string;
-      age: string;
-    }
-    const errors : Partial<Errors> = {}
+   
 
 
     if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(playerName)) {
