@@ -13,7 +13,7 @@ export default function TeamCard({ team }) {
       {/* Logo do Time */}
       <div className="w-full bg-gray-800 flex justify-center p-4">
         <Image
-          src={team.logo || "/img/team-placeholder.png"}
+          src={team.photoUrl || "/img/team-placeholder.png"}
           alt={team.name}
           width={80}
           height={80}

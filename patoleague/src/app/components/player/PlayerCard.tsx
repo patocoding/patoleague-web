@@ -13,6 +13,7 @@ interface Player {
   team?: {
     name: string;
   };
+  photoUrl: string;
 }
 
 interface PlayerCardProps {
@@ -22,7 +23,7 @@ interface PlayerCardProps {
 export default function PlayerCard({ player }: PlayerCardProps) {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-      <Image src="/img/player-placeholder.png" alt="Jogador" width={100} height={100} className="rounded-full" />
+      <Image src={player.photoUrl || "/img/player-placeholder.png"} alt="Jogador" width={100} height={100} className="rounded-full" />
       <h2 className="text-xl font-bold mt-4">{player.name} ({player.nickname})</h2>
       <p className="text-gray-600">{player.position}</p>
       <p className="text-sm text-gray-500">{player.team ? `Time: ${player.team.name}` : "Sem time"}</p>

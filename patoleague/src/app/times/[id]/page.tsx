@@ -67,34 +67,40 @@ export default function TeamPage() {
       <Header />
       <div className="relative min-h-screen mt-10 font-[Inter]">
         {/* Campeonatos */}
-        <div className="rounded-lg flex-col  max-w-4xl mx-auto mb-8 flex items-center justify-center md:justify-start p-2">
+        
+
+        <div className=" md:bg-[#0c2f37]   flex-col md:flex-row w-full mx-auto mb-8 flex items-center md:justify-between">
+          <div className="p-4 ">
+          <h1 className="md:text-5xl text-3xl font-bold capitalize font-[Poppins] md:text-white">{team.name}</h1>
+          </div>
           <div>
+          <div className="flex items-center p-2">
           <span className="w-3 h-3 bg-green-500 rounded-full shadow-lg animate-pulse mr-2"></span>
-          <h2 className="font-semibold">Participando:</h2>
+          <h2 className="font-semibold md:text-white ">Participando:</h2>
           </div>
           {team?.championshipTeams?.length > 0 ? (
-            <ul>
+            <ul className="p-2">
               {team.championshipTeams.map((entry) => (
-                <li key={entry.id} className="text-gray-800 text-[12px] ml-4">
+                <li key={entry.id} className="md:text-gray-300 text-[12px] ml-4">
                   {entry.championship.name} - {entry.championship.year}
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-gray-600 text-center">Este time não está participando de nenhum campeonato no momento.</p>
-          )}
-        </div>
-
+            <p className="md:text-gray-300 text-center p-2">Este time não está participando de nenhum campeonato no momento.</p>
+          )}         
+          </div>
+          </div>
         {/* Informações do time */}
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           {/* Logo do time */}
           <div className="relative w-1/3 flex justify-center">
             <Image
-              src={team.logo || "/img/team-placeholder.png"}
+              src={team.photoUrl || "/img/team-placeholder.png"}
               alt={team.name}
               width={350}
               height={350}
-              className="rounded-lg shadow-lg border-4 border-white"
+             
             />
           </div>
 
@@ -113,10 +119,10 @@ export default function TeamPage() {
               </PlButton>
             </div>
           )}
-
+          
           {/* Informações gerais do time */}
           <div className="flex-1 p-8">
-            <h1 className="text-5xl font-bold uppercase">{team.name}</h1>
+            
             <p className="text-2xl opacity-75">
               {team.city}, {team.state}
             </p>

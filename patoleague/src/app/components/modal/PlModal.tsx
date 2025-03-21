@@ -10,8 +10,8 @@ export default function PlModal({
 
     return (
         <>
-        <div className="fixed inset-0 flex items-center justify-center overflow-auto p-4 bg-black bg-opacity-50 z-50">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+        <div className="fixed  inset-0 flex items-center justify-center overflow-auto p-4 bg-black bg-opacity-50 z-50">
+            <div className="bg-white  p-6 rounded-lg shadow-lg w-96 relative">
             {/* Botão de Fechar */}
             <button
             onClick={onClose}

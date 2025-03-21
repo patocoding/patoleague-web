@@ -8,8 +8,10 @@ import { IoPerson } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import api from "@/config/axios";
 import { RxLetterCaseCapitalize } from "react-icons/rx";
-import { FaMapPin, FaSpinner } from "react-icons/fa";
+import { FaHashtag, FaMapPin, FaRulerVertical, FaSpinner, FaTshirt, FaUser, FaWeight } from "react-icons/fa";
 import { FaLandmarkFlag, FaBasketball } from "react-icons/fa6";
+import { MdCake } from "react-icons/md";
+import { GiBasketballJersey } from "react-icons/gi";
 export default function Banner() {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,7 +34,30 @@ export default function Banner() {
   const [checkingData, setCheckingData] = useState(true); 
   const [team, setTeam] = useState(null);
   const [hasTeam, setHasTeam] = useState(false);
+  const [validationErrors, setValidationErrors] = useState({});
 
+  const validateInputs = () => {
+    let errors = {};
+
+    if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(playerName)) {
+      errors.playerName = "Nome deve conter apenas letras e espaços.";
+    }
+    if (!/^[a-zA-Z0-9]+$/.test(nickname)) {
+      errors.nickname = "Nickname deve conter apenas letras e números, sem espaços.";
+    }
+    if (!/^\d{1,3}$/.test(height)) {
+      errors.height = "Altura deve ter no máximo 3 dígitos numéricos.";
+    }
+    if (!/^\d{1,3}$/.test(weight)) {
+      errors.weight = "Peso deve ter no máximo 3 dígitos numéricos.";
+    }
+    if (!/^\d{1,3}$/.test(age)) {
+      errors.age = "Idade deve ter no máximo 3 dígitos numéricos.";
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user") || "null");
     if (storedUser && storedUser.id) {
@@ -104,6 +129,8 @@ export default function Banner() {
       router.push("/auth");
       return;
     }
+
+    if (!validateInputs()) return;
 
     setLoading(true);
     setError("");
@@ -252,28 +279,110 @@ export default function Banner() {
 
       {/* Modal de Criação de Jogador */}
       <PlModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <h2 className="text-xl font-bold">Criar Jogador</h2>
-        <div className="mt-4 flex flex-col gap-y-8 overflow-auto">
-          <input type="text" placeholder="Nome Completo" value={playerName} onChange={(e) => setPlayerName(e.target.value)} className="border p-6 rounded-xl" />
-          <input type="text" placeholder="Nickname de Jogador" value={nickname} onChange={(e) => setNickname(e.target.value)} className="border p-6 rounded-xl" />
-          <input type="number" placeholder="Número da Camisa" value={jerseyNumber} onChange={(e) => setJerseyNumber(e.target.value)} className="border p-6 rounded-xl" />
-          <select value={position} onChange={(e) => setPosition(e.target.value)} className="border p-6 rounded-xl">
-            <option value="">Posição em que Joga</option>
-            <option value="Armador">Armador</option>
-            <option value="Ala-Armador">Ala-Armador</option>
-            <option value="Ala">Ala</option>
-            <option value="Ala-Pivô">Ala-Pivô</option>
-            <option value="Pivô">Pivô</option>
-          </select>
-          <input type="text" placeholder="Altura em CM" value={height} onChange={(e) => setHeight(e.target.value)} className="border p-6 rounded-xl" />
-          <input type="text" placeholder="Idade" value={age} onChange={(e) => setAge(e.target.value)} className="border p-6 rounded-xl" />
-          <input type="text" placeholder="Peso em KG" value={weight} onChange={(e) => setWeight(e.target.value)} className="border p-6 rounded-xl" />
-          {error && <p className="text-red-500">{error}</p>}
-          <PlButton hierarchy="primary" onClick={handleCreatePlayer} disabled={loading}>
-            {loading ? "Criando..." : "Criar Jogador"}
-          </PlButton>
-        </div>
-      </PlModal>
+  <h2 className="text-xl font-bold">Criar Jogador</h2>
+  <div className="mt-4 md:flex md:flex-col grid grid-cols-2 gap-4">
+    {/* Nome Completo */}
+    <div className="relative flex items-center">
+      <FaUser className="absolute left-4 text-gray-500" />
+      <input
+        type="text"
+        placeholder="Nome Completo"
+        value={playerName}
+        onChange={(e) => setPlayerName(e.target.value)}
+        className="border p-4 pl-12 rounded-3xl w-full"
+      />
+    </div>
+
+    {/* Nickname */}
+    <div className="relative flex items-center">
+      <FaHashtag className="absolute left-4 text-gray-500" />
+      <input
+        type="text"
+        placeholder="Nickname"
+        value={nickname}
+        onChange={(e) => setNickname(e.target.value)}
+        className="border p-4 pl-12 rounded-3xl w-full"
+      />
+    </div>
+
+    {/* Número da Camisa */}
+    <div className="relative flex items-center">
+      <GiBasketballJersey className="absolute left-4 text-gray-500" />
+      <input
+        type="number"
+        placeholder="Número da Camisa"
+        value={jerseyNumber}
+        onChange={(e) => setJerseyNumber(e.target.value)}
+        className="border p-4 pl-12 rounded-3xl w-full"
+      />
+    </div>
+
+    {/* Posição */}
+    <div className="relative flex items-center">
+      <FaTshirt className="absolute left-4 text-gray-500" />
+      <select value={position} onChange={(e) => setPosition(e.target.value)} className="border p-4 pl-12 rounded-lg w-full">
+        <option value="">Posição</option>
+        <option value="Armador">Armador</option>
+        <option value="Ala-Armador">Ala-Armador</option>
+        <option value="Ala">Ala</option>
+        <option value="Ala-Pivô">Ala-Pivô</option>
+        <option value="Pivô">Pivô</option>
+      </select>
+    </div>
+
+    {/* Altura */}
+    <div className="relative flex items-center">
+      <FaRulerVertical className="absolute left-4 text-gray-500" />
+      <input
+        type="text"
+        placeholder="Altura em CM"
+        value={height}
+        onChange={(e) => setHeight(e.target.value)}
+        className="border p-4 pl-12 rounded-3xl w-full"
+      />
+    </div>
+
+    {/* Peso */}
+    <div className="relative flex items-center">
+      <FaWeight className="absolute left-4 text-gray-500" />
+      <input
+        type="text"
+        placeholder="Peso em KG"
+        value={weight}
+        onChange={(e) => setWeight(e.target.value)}
+        className="border p-4 pl-12 rounded-3xl w-full"
+      />
+    </div>
+
+    {/* Idade */}
+    <div className="relative flex items-center">
+      <MdCake className="absolute left-4 text-gray-500" />
+      <input
+        type="text"
+        placeholder="Idade"
+        value={age}
+        onChange={(e) => setAge(e.target.value)}
+        className="border p-4 pl-12 rounded-3xl w-full"
+      />
+    </div>
+
+    {error && <p className="text-red-500">{error}</p>}
+  </div>
+
+  {/* Botão de criar jogador */}
+  <div className="flex justify-center my-2">
+    <PlButton hierarchy="secondary" className="" onClick={handleCreatePlayer} disabled={loading}>
+      {loading ? "Criando..." : "Criar Jogador"}
+    </PlButton>
+  </div>
+
+  {/* Mensagens de erro de validação */}
+  {validationErrors.age && <p className="text-red-500 text-[10px] md:text-[12px] underline">{validationErrors.age}</p>}
+  {validationErrors.playerName && <p className="text-red-500 text-[10px] md:text-[12px] underline">{validationErrors.playerName}</p>}
+  {validationErrors.weight && <p className="text-red-500 text-[10px] md:text-[12px] underline">{validationErrors.weight}</p>}
+  {validationErrors.height && <p className="text-red-500 text-[10px] md:text-[12px] underline">{validationErrors.height}</p>}
+  {validationErrors.nickname && <p className="text-red-500 text-[10px] md:text-[12px] underline">{validationErrors.nickname}</p>}
+</PlModal>
     </div>
   );
 }

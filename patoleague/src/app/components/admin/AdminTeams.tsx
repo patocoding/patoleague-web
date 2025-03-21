@@ -19,6 +19,7 @@ export default function AdminTeams() {
     name: "",
     city: "",
     state: "",
+    photoUrl: ""
   });
 
   useEffect(() => {
@@ -140,22 +141,29 @@ export default function AdminTeams() {
           <input
             type="text"
             placeholder="Nome do Time"
-            value={editTeam.name}
+            value={editTeam.name || null}
             onChange={(e) => setEditTeam({ ...editTeam, name: e.target.value })}
             className="border p-4 rounded-lg"
           />
           <input
             type="text"
             placeholder="Cidade"
-            value={editTeam.city}
+            value={editTeam.city || null}
             onChange={(e) => setEditTeam({ ...editTeam, city: e.target.value })}
             className="border p-4 rounded-lg"
           />
           <input
             type="text"
             placeholder="Estado"
-            value={editTeam.state}
+            value={editTeam.state || null}
             onChange={(e) => setEditTeam({ ...editTeam, state: e.target.value })}
+            className="border p-4 rounded-lg"
+          />
+          <input
+            type="text"
+            placeholder="photo url"
+            value={editTeam.photoUrl || null}
+            onChange={(e) => setEditTeam({ ...editTeam, photoUrl: e.target.value })}
             className="border p-4 rounded-lg"
           />
           <PlButton hierarchy="primary" onClick={handleEditTeam}>

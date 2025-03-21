@@ -83,7 +83,7 @@ export default function PlayerCarousel({ players }) {
               <div className="bg-black text-white text-xs grid grid-cols-3 p-2 text-center">
                 <div>
                   <p className="font-bold">Posição</p>
-                  <p>{player.position}</p>
+                  <p>{player.position.substr(0,7)}</p>
                 </div>
                 <div>
                   <p className="font-bold">Altura</p>

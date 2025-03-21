@@ -65,12 +65,12 @@ export default function HorizontalScrollMatches() {
             key={match.id}
             className="md:min-w-[400px] min-w-[250px] bg-white bg bg-cover bg-center shadow-md rounded-lg p-4 flex flex-col items-center text-center border border-gray-300"
           >
-            <p className="text-lg font-semibold text-[10px] ">{match.championship.name}</p>
+            <p className="text-lg font-semibold text-[10px] bg-white rounded-2xl px-1 md:bg-transparent md:px-0">{match.championship.name}</p>
             <div className="flex items-center justify-center space-x-2 my-2">
               {/* <span className="font-bold text-xl capitalize font-[Poppins]">{match.teamHome.name}</span> */}
-              <Image width={120} height={120} alt="time1" src="https://logodetimes.com/wp-content/uploads/chicago-bulls.png" ></Image>
+              <Image width={80} height={80} alt="time1" src={match.teamHome?.photoUrl || '/img/team-placeholder.png'} ></Image>
               <span className="text-gray-500">vs</span>
-              <Image width={120} height={120} alt="time1" src="https://logodetimes.com/wp-content/uploads/chicago-bulls.png" ></Image>
+              <Image width={80} height={80} alt="time1" src={match.teamAway?.photoUrl || '/img/team-placeholder.png'} ></Image>
             </div>
             <p className="text-gray-600 text-[10px]">
   {format(new Date(match.date), "dd 'de' MMMM 'de' yyyy 'às' HH:mm", { locale: ptBR })}

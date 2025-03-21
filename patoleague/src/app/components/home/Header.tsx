@@ -125,16 +125,23 @@ export default function Header() {
 
               {/* Menu Mobile */}
               <ul className="flex flex-col gap-y-8 p-4 mt-6 font-medium text-lg text-zinc-800 w-full text-center">
-                <li className="flex items-center justify-center gap-x-4 hover:text-orange-500 duration-200 cursor-pointer" onClick={() => handleChangeRoute("/")}>
-                  <FaHome /> Início
+                <li
+                  className="flex items-center gap-x-4 hover:text-orange-500 duration-200 cursor-pointer justify-start pl-6"
+                  onClick={() => handleChangeRoute("/")}
+                >
+                  <FaHome size={20} /> <span>Início</span>
                 </li>
 
                 {/* Dropdown Campeonato no Mobile */}
-                <li className="flex items-center justify-center gap-x-4 hover:text-orange-500 duration-200 cursor-pointer" onClick={() => toggleDropdown("campeonato")}>
-                  <FaBasketballBall /> <span className="">Campeonato</span> <FaChevronDown/>
+                <li
+                  className="flex items-center gap-x-4 hover:text-orange-500 duration-200 cursor-pointer justify-start pl-6"
+                  onClick={() => toggleDropdown("campeonato")}
+                >
+                  <FaBasketballBall size={20} /> <span>Campeonato</span> <FaChevronDown size={16} />
                 </li>
+                
                 {dropdown === "campeonato" && (
-                  <motion.ul className="pl-6 flex flex-col text-gray-700">
+                  <motion.ul className="pl-10 flex flex-col text-gray-700 w-full text-left">
                     <li className="p-2 hover:bg-gray-100 cursor-pointer" onClick={() => handleChangeRoute("/classificacao")}>
                       Classificação
                     </li>
@@ -150,13 +157,21 @@ export default function Header() {
                   </motion.ul>
                 )}
 
-                <li className="hover:text-orange-500 duration-200 flex items-center justify-center gap-x-4 cursor-pointer" onClick={() => handleChangeRoute("/times")}>
-                  <FaPeopleLine /> Times
+                <li
+                  className="flex items-center gap-x-4 hover:text-orange-500 duration-200 cursor-pointer justify-start pl-6"
+                  onClick={() => handleChangeRoute("/times")}
+                >
+                  <FaPeopleLine size={20} /> <span>Times</span>
                 </li>
-                <li className="hover:text-orange-500 duration-200 flex items-center justify-center gap-x-4 cursor-pointer" onClick={() => handleChangeRoute("/jogadores")}>
-                  <GiBasketballJersey /> Jogadores
+
+                <li
+                  className="flex items-center gap-x-4 hover:text-orange-500 duration-200 cursor-pointer justify-start pl-6"
+                  onClick={() => handleChangeRoute("/jogadores")}
+                >
+                  <GiBasketballJersey size={20} /> <span>Jogadores</span>
                 </li>
               </ul>
+
 
               {/* Botão de Logout */}
               {isAuthenticated ? (
