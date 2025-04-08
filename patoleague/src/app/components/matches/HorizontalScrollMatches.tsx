@@ -72,12 +72,15 @@ export default function HorizontalScrollMatches() {
               <span className="text-gray-500">vs</span>
               <Image width={80} height={80} alt="time1" src={match.teamAway?.photoUrl || '/img/team-placeholder.png'} ></Image>
             </div>
-            <p className="text-gray-600 text-[10px]">
+            <p className="text-gray-600 text-[10px] hidden md:block">
   {format(new Date(match.date), "dd 'de' MMMM 'de' yyyy 'às' HH:mm", { locale: ptBR })}
 </p>
             <p className={`bg-white p-2 rounded-3xl border border-black font-semibold mt-2 ${match.status === "Finalizado" ? "text-green-600" : "text-blue-600"}`}>
               {match.status}
             </p>
+            <p className="text-gray-800 text-[10px] underline  md:hidden">
+  {format(new Date(match.date), "dd 'de' MMMM 'de' yyyy 'às' HH:mm", { locale: ptBR })}
+</p>
           </div>
         ))}
       </div>

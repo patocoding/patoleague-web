@@ -49,12 +49,11 @@ export default function Header() {
   if (!hasMounted) return null;
 
   return (
-    <div className="p-4">
+    <div className="">
       <div className="flex justify-between items-center font-[Inter] p-2 md:p-0   bg-white rounded-xl shadow-md w-full">
       {/* Logo */}
       <div className="flex items-center md:pl-6">
-        <Image src="/img/basketball.png" alt="ball" width={50} height={50} />
-        <p className="text-amber-700 font-bold text-2xl ml-2">PL</p>
+        <Image src="/img/pato-league.png" alt="ball" width={60} height={60} />
       </div>
 
      {/* Menu Desktop */}

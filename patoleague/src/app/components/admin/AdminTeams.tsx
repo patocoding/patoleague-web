@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import api from "@/config/axios";
 import PlButton from "../button/button";
 import PlModal from "../modal/PlModal";
+import { useAuthentication } from "@/hooks/useAuthentication";
 
 export default function AdminTeams() {
   const [teams, setTeams] = useState([]);
@@ -13,13 +14,22 @@ export default function AdminTeams() {
   const [error, setError] = useState("");
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isManagePlayersModalOpen, setIsManagePlayersModalOpen] = useState(false);
-
+  const {user} = useAuthentication()
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false); // Novo estado para abrir o modal de criação de time
   const [editTeam, setEditTeam] = useState({
     id: null,
     name: "",
     city: "",
     state: "",
     photoUrl: ""
+  });
+
+  const [newTeam, setNewTeam] = useState({
+    name: "",
+    city: "",
+    state: "",
+    photoUrl: "",
+    createdById: user.id, 
   });
 
   useEffect(() => {
@@ -46,6 +56,18 @@ export default function AdminTeams() {
     } catch (err) {
       console.log(err)
       setError("Erro ao carregar jogadores");
+    }
+  }
+
+  async function handleCreateTeam() {
+    try {
+      await api.post("/teams", newTeam);
+      alert("Time criado com sucesso!");
+      setIsCreateModalOpen(false);
+      fetchTeams(); 
+    } catch (err) {
+      console.log(err);
+      setError("Erro ao criar time");
     }
   }
 
@@ -133,6 +155,50 @@ export default function AdminTeams() {
           </li>
         ))}
       </ul>
+      <PlButton
+        hierarchy="primary"
+        onClick={() => setIsCreateModalOpen(true)}
+      >
+        Criar Novo Time
+      </PlButton>
+
+      {/* Modal para Criar Time */}
+      <PlModal isOpen={isCreateModalOpen} onClose={() => setIsCreateModalOpen(false)}>
+        <h2 className="text-xl font-bold">Criar Time</h2>
+        <div className="mt-4 flex flex-col gap-4">
+          <input
+            type="text"
+            placeholder="Nome do Time"
+            value={newTeam.name}
+            onChange={(e) => setNewTeam({ ...newTeam, name: e.target.value })}
+            className="border p-4 rounded-lg"
+          />
+          <input
+            type="text"
+            placeholder="Cidade"
+            value={newTeam.city}
+            onChange={(e) => setNewTeam({ ...newTeam, city: e.target.value })}
+            className="border p-4 rounded-lg"
+          />
+          <input
+            type="text"
+            placeholder="Estado"
+            value={newTeam.state}
+            onChange={(e) => setNewTeam({ ...newTeam, state: e.target.value })}
+            className="border p-4 rounded-lg"
+          />
+          <input
+            type="text"
+            placeholder="URL da Foto"
+            value={newTeam.photoUrl}
+            onChange={(e) => setNewTeam({ ...newTeam, photoUrl: e.target.value })}
+            className="border p-4 rounded-lg"
+          />
+          <PlButton hierarchy="primary" onClick={handleCreateTeam}>
+            Criar Time
+          </PlButton>
+        </div>
+      </PlModal>
 
       {/* Modal para Editar Time */}
       <PlModal isOpen={isEditModalOpen} onClose={() => setIsEditModalOpen(false)}>

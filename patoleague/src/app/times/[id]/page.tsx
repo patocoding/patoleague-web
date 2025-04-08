@@ -7,21 +7,17 @@ import InvitePlayer from "@/app/components/teams/InvitePlayer";
 import Header from "@/app/components/home/Header";
 import PlayerCarousel from "@/app/components/player/PlayerCarousel";
 import PlButton from "@/app/components/button/button";
+import { useAuthentication } from "@/hooks/useAuthentication";
 
 export default function TeamPage() {
   const { id } = useParams();
   const [team, setTeam] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [user, setUser] = useState(null);
+  const {user} = useAuthentication()
   const [isPlayerInTeam, setIsPlayerInTeam] = useState(false);
-  // ✅ Obtém o usuário no useEffect (evita erros de renderização)
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user") || "null");
-    if (storedUser && storedUser.id) {
-      setUser(storedUser);
-    }
-  }, []);
+
+
 
   useEffect(() => {
     if (!id || !user) return;
@@ -105,11 +101,11 @@ export default function TeamPage() {
           </div>
 
           {/* Exibir convite apenas se o usuário for o dono do time */}
-          {user?.id === team?.createdBy?.id && (
+          {/* {user?.id === team?.createdBy?.id && (
             <div>
               <InvitePlayer teamId={id} />
             </div>
-          )}
+          )} */}
 
           {/* Se o usuário for jogador do time, exibe botão para sair */}
           {isPlayerInTeam && (
@@ -121,14 +117,14 @@ export default function TeamPage() {
           )}
           
           {/* Informações gerais do time */}
-          <div className="flex-1 p-8">
+          {/* <div className="flex-1 p-8">
             
             <p className="text-2xl opacity-75">
               {team.city}, {team.state}
             </p>
             <p className="mt-2 text-xl">Fundado em: {team.foundedYear || "N/A"}</p>
             <p className="mt-2 text-xl">Títulos conquistados: {team.championshipsWon || 0}</p>
-          </div>
+          </div> */}
         </div>
 
         {/* Lista de jogadores */}
