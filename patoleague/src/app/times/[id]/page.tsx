@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import api from "@/config/axios";
 import Image from "next/image";
-import InvitePlayer from "@/app/components/teams/InvitePlayer";
+// import InvitePlayer from "@/app/components/teams/InvitePlayer";
 import Header from "@/app/components/home/Header";
 import PlayerCarousel from "@/app/components/player/PlayerCarousel";
 import PlButton from "@/app/components/button/button";

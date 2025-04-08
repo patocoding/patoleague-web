@@ -7,7 +7,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-inter: var(--font-inter);
+  --font-montserrat: var(--font-montserrat);
   --heading-color: #22310f;
   --downtext-color: #5A6066;
 }
@@ -45,17 +45,16 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .heading {
-  font-family: var(--font-inter);
+  font-family: var(--font-montserrat);
   color: var(--heading-color);
 }
 
 .downtext {
   color: var(--downtext-color);
-  font-family: var(--font-inter);
+  font-family: var(--font-montserrat);
 }
 
 .input {

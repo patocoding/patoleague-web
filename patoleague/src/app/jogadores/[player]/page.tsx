@@ -6,16 +6,16 @@ import Image from "next/image";
 import PlButton from "@/app/components/button/button";
 import { FaFacebookF, FaTwitter, FaGooglePlusG } from "react-icons/fa";
 import Header from "@/app/components/home/Header";
-import { usePlayer } from "@/hooks/usePlayer";
+// import { usePlayer } from "@/hooks/usePlayer";
 
 export default function PlayerPage() {
   const router = useRouter();
   const { player } = useParams();
-  const useplayer = usePlayer()
+  // const useplayer = usePlayer()
   const [playerObject, setPlayerObject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [isSeasonStats, setIsSeasonStats] = useState(true);
+  // const [isSeasonStats, setIsSeasonStats] = useState(true);
   
   useEffect(() => {
     if (!player) return;

@@ -1,3 +1,4 @@
+import Donate from "./components/donate/Donate";
 import Banner from "./components/home/Banner";
 import Header from "./components/home/Header";
 import HorizontalScrollMatches from "./components/matches/HorizontalScrollMatches";
@@ -8,6 +9,7 @@ export default function Home() {
       <Header/>
       <HorizontalScrollMatches/>
       <Banner/>
+      {/* <Donate/> */}
     </div>
   );
 }
