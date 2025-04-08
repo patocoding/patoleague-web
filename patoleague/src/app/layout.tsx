@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter,Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./context/AuthContext";
 import ReduxProvider from "../redux/ReduxProvider";
@@ -14,10 +14,10 @@ import ReduxProvider from "../redux/ReduxProvider";
 //   subsets: ["latin"],
 // });
 
-const InterSans = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"]
-})
+// const InterSans = Inter({
+//   variable: "--font-inter",
+//   subsets: ["latin"]
+// })
 
 const MontserratSans = Inter({
   variable: "--font-montserrat",
