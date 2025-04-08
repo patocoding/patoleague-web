@@ -49,7 +49,7 @@ export default function HorizontalScrollMatches() {
     <div className="font-bold text-3xl font-[Poppins] border-b-4 border-red-500 gap-x-4 m pb-4 md:pl-4 md:pr-4 md:ml-8 md:w-fit  flex text-center items-center justify-center">
             <FaBasketballBall/><p className="text-center">Jogos</p>
         </div>
-    <div className="relative w-full px-4 font-[Inter]">
+    <div className="relative w-full px-4 ">
         
       {/* Botões de Navegação */}
       <button

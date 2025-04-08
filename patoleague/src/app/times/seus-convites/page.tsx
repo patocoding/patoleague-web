@@ -48,7 +48,7 @@ export default function PlayerInvites() {
   };
 
   return (
-    <div className="font-[Inter]">
+    <div className="">
       <Header/>
       <div className="p-2">
         <h2 className="md:text-4xl text-2xl p-4 font-[Poppins] font-bold  ">Seus convites de time</h2>

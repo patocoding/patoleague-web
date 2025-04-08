@@ -37,7 +37,7 @@ export default function PublicStandings() {
   }
 
   return (
-    <div className="p-6 font-[Inter]">
+    <div className="p-6 ">
       <h2 className="text-2xl font-bold mb-4 font-[Poppins]">Classificações</h2>
       <div className="h-1 bg-red-500"></div>
       {loading && <p>Carregando...</p>}

@@ -184,7 +184,7 @@ export default function Banner() {
   };
 
   return (
-    <div className="bg-[#0c2f37] flex flex-col md:flex-row mt-8 rounded-2xl items-center md:justify-center font-[Inter]">
+    <div className="bg-[#0c2f37] flex flex-col md:flex-row mt-8 rounded-2xl items-center md:justify-center ">
       <div className="px-12 py-8 flex flex-col">
         <h1 className="text-4xl font-bold text-white">
           Pato <span className="text-orange-500">League</span> <br />

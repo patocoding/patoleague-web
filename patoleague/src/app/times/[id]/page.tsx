@@ -61,7 +61,7 @@ export default function TeamPage() {
   return (
     <>
       <Header />
-      <div className="relative min-h-screen mt-10 font-[Inter]">
+      <div className="relative min-h-screen mt-10">
         {/* Campeonatos */}
         
 

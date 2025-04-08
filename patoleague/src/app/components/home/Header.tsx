@@ -50,7 +50,7 @@ export default function Header() {
 
   return (
     <div className="">
-      <div className="flex justify-between items-center font-[Inter] p-2 md:p-0   bg-white rounded-xl shadow-md w-full">
+      <div className="flex justify-between items-center  p-2 md:p-0   bg-white rounded-xl shadow-md w-full">
       {/* Logo */}
       <div className="flex items-center md:pl-6">
         <Image src="/img/pato-league.png" alt="ball" width={60} height={60} />

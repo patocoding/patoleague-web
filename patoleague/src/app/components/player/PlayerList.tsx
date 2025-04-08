@@ -61,13 +61,13 @@ export default function PlayersList() {
 
             {/* Informações do Jogador */}
             <div className="p-4 text-center">
-              <h2 className="text-xl font-semibold Capitalize"><span className="font-[Inter] font-thin">#{player.jerseyNumber}</span> {player.name.split(" ")[0][0]}. {player.name.split(" ")[1]}</h2>
+              <h2 className="text-xl font-semibold Capitalize"><span className=" font-thin">#{player.jerseyNumber}</span> {player.name.split(" ")[0][0]}. {player.name.split(" ")[1]}</h2>
               <p className="text-gray-400 text-sm mt-1">{player.team?.name || "Sem time"}</p>
             </div>
 
             {/* Botão Perfil */}
             <div className="w-full bg-gray-800 p-3 text-center hover:bg-orange-500 transition">
-              <span className="font-thin font-[Inter] capitalize">perfil jogador →</span>
+              <span className="font-thin capitalize">perfil jogador →</span>
             </div>
           </div>
         ))}

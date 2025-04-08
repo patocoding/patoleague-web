@@ -41,7 +41,7 @@ export default function PlayerPage() {
   return (
     <>
       <Header />
-      <div className="relative min-h-screen mt-6 font-[Inter] px-4 md:px-8">
+      <div className="relative min-h-screen mt-6 px-4 md:px-8">
         {/* Cabeçalho */}
         <div className="bg-[#0c2f37] py-6 text-white flex flex-col md:flex-row items-center justify-between px-6 md:px-12 rounded-lg">
           <div className="flex items-center gap-4">
@@ -65,7 +65,7 @@ export default function PlayerPage() {
           {/* Nome e Estatísticas */}
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-3xl md:text-5xl font-bold text-zinc-700 font-[Poppins]">
-              <span className="font-extralight font-[Inter]">
+              <span className="font-extralight ">
                 #{playerObject.jerseyNumber}
               </span>{" "}
               {playerObject.name}

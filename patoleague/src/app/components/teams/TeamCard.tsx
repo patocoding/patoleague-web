@@ -7,7 +7,7 @@ export default function TeamCard({ team }) {
 
   return (
     <div
-      className="bg-gray-900  font-[Inter] text-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center cursor-pointer hover:scale-105 transition transform duration-300"
+      className="bg-gray-900  text-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center cursor-pointer hover:scale-105 transition transform duration-300"
       onClick={() => router.push(`/times/${team.id}`)}
     >
       {/* Logo do Time */}

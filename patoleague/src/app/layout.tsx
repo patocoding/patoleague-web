@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./context/AuthContext";
 import ReduxProvider from "../redux/ReduxProvider";
@@ -19,9 +19,10 @@ import ReduxProvider from "../redux/ReduxProvider";
 //   subsets: ["latin"]
 // })
 
-const MontserratSans = Inter({
+const MontserratSans = Montserrat({
   variable: "--font-montserrat",
-  subsets: ["latin"]
+  subsets: ["latin"],
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {
