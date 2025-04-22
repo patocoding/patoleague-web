@@ -63,9 +63,9 @@ export default function HorizontalScrollMatches() {
         {matches.map((match) => (
           <div
             key={match.id}
-            className="md:min-w-[400px] min-w-[250px] bg-white bg bg-cover bg-center shadow-md rounded-lg p-4 flex flex-col items-center text-center border border-gray-300"
+            className="md:min-w-[400px] min-w-[250px]  bg bg-cover bg-center shadow-md rounded-lg p-4 flex flex-col items-center text-center border border-gray-300"
           >
-            <p className="text-lg font-semibold text-[10px] bg-white rounded-2xl px-1 md:bg-transparent md:px-0">{match.championship.name}</p>
+            <p className="text-lg font-semibold text-[10px] bg-orange-500 rounded-2xl py-1 italic px-4 md:bg-transparent md:px-0">{match.championship.name}</p>
             <div className="flex items-center justify-center space-x-2 my-2">
               {/* <span className="font-bold text-xl capitalize font-[Poppins]">{match.teamHome.name}</span> */}
               <Image width={80} height={80} alt="time1" src={match.teamHome?.photoUrl || '/img/team-placeholder.png'} ></Image>
@@ -75,12 +75,13 @@ export default function HorizontalScrollMatches() {
             <p className="text-gray-600 text-[10px] hidden md:block">
   {format(new Date(match.date), "dd 'de' MMMM 'de' yyyy 'às' HH:mm", { locale: ptBR })}
 </p>
-            <p className={`bg-white p-2 rounded-3xl border border-black font-semibold mt-2 ${match.status === "Finalizado" ? "text-green-600" : "text-blue-600"}`}>
+<p className="text-gray-800 font-bold text-[10px] bg-zinc-100 px-2 py-1 rounded-md underline  md:hidden">
+  {format(new Date(match.date), "dd/MM/yyyy 'às' HH:mm", { locale: ptBR })}
+</p>
+            <p className={` p-1 rounded-xl border text-base bg-zinc-100 border-black font-semibold mt-2 ${match.status === "Finalizado" ? "text-green-600" : "text-"}`}>
               {match.status}
             </p>
-            <p className="text-gray-800 text-[10px] underline  md:hidden">
-  {format(new Date(match.date), "dd 'de' MMMM 'de' yyyy 'às' HH:mm", { locale: ptBR })}
-</p>
+
           </div>
         ))}
       </div>
